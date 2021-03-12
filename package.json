@@ -1,0 +1,22 @@
+{
+  "name": "electron-react",
+  "version": "1.0.0",
+  "description": "electron-react",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vigneshwaran-chandrasekaran/electron-react.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vigneshwaran-chandrasekaran/electron-react/issues"
+  },
+  "homepage": "https://github.com/vigneshwaran-chandrasekaran/electron-react#readme",
+  "dependencies": {
+    "electron": "^12.0.1"
+  }
+}
