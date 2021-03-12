@@ -4,6 +4,7 @@
   "description": "electron-react",
   "main": "index.js",
   "scripts": {
+    "start": "electron .",
     "electron": "electron ."
   },
   "repository": {

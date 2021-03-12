@@ -1,1 +1,8 @@
-test data
+if we change only the html content we can use
+ctrl + R = to rerender the browser
+
+----------------------------
+
+if we change electron content or index.js or electron related must do restart
+
+----------------------------
