@@ -6,17 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vigneshwaran</title>
+
 </head>
 
 <body>
-    <h1>Vigneshwaran</h1>
-    <button onclick="alert('hi how are you');">click me</button>
+    <h1>Video Information</h1>
     <form>
         <div>
             <label>Select a video</label>
             <input type="file" accept="video/*" />
         </div>
+        <button type="submit">Get Info</button>
     </form>
+
+    <script>
+        window.onload = function () {
+            if (require) {
+                console.log('require works fine')
+                console.log(require)
+                const electron = require("electron");
+            }
+
+            document.querySelector('form').addEventListener('submit', (event) => {
+                event.preventDefault();
+                const file = document.querySelector('input').files[0];
+                console.log('file', file);
+            })
+        };
+
+    </script>
 </body>
 
 </html>
