@@ -21,17 +21,20 @@
 
     <script>
         window.onload = function () {
-            if (require) {
+            console.log('window', window);
+            if (window.require) {
                 console.log('require works fine')
                 console.log(require)
                 const electron = require("electron");
-            }
+                const { ipcRenderer } = electron;
 
-            document.querySelector('form').addEventListener('submit', (event) => {
-                event.preventDefault();
-                const file = document.querySelector('input').files[0];
-                console.log('file', file);
-            })
+                document.querySelector('form').addEventListener('submit', (event) => {
+                    event.preventDefault();
+                    const file = document.querySelector('input').files[0];
+                    console.log('file', file);
+                    ipcRenderer.send('video:submit', file.path);
+                });
+            }
         };
 
     </script>
