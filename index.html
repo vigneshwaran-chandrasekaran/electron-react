@@ -17,6 +17,8 @@
             <input type="file" accept="video/*" />
         </div>
         <button type="submit">Get Info</button>
+        <h1 id="result"></h1>
+        <p id="size"></p>
     </form>
 
     <script>
@@ -24,7 +26,6 @@
             console.log('window', window);
             if (window.require) {
                 console.log('require works fine')
-                console.log(require)
                 const electron = require("electron");
                 const { ipcRenderer } = electron;
 
@@ -33,6 +34,11 @@
                     const file = document.querySelector('input').files[0];
                     console.log('file', file);
                     ipcRenderer.send('video:submit', file.path);
+                });
+
+                ipcRenderer.on('video:metadata', (event, metadata) => {
+                    document.getElementById("result").innerHTML = `Video is ${metadata.format.duration.toFixed(2)} seconds`
+                    document.querySelector('#size').innerHTML = `Video size is ${(metadata.format.size / 1048576).toFixed(2)} MB`;
                 });
             }
         };

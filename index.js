@@ -2,11 +2,12 @@ const electron = require("electron");
 const ffmpeg = require("fluent-ffmpeg");
 
 const { app, BrowserWindow, ipcMain } = electron;
+let mainWindow;
 
 app.on("ready", () => {
   console.log("App is ready");
 
-  const mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 1000,
     height: 600,
     webPreferences: {
@@ -27,6 +28,8 @@ ipcMain.on("video:submit", (event, path) => {
     if (err) {
       console.log("error", err);
     }
+
+    mainWindow.webContents.send("video:metadata", metaData);
 
     console.log("metaData", metaData);
   });
