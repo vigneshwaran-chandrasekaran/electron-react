@@ -1,12 +1,33 @@
 const electron = require("electron");
 const ffmpeg = require("fluent-ffmpeg");
 
-const { app, BrowserWindow, ipcMain } = electron;
+const { app, BrowserWindow, Menu } = electron;
 let mainWindow;
 
-app.on("ready", () => {
-  console.log("App is ready");
+const menuTemplate = [
+  {
+    label: "File",
+    submenu: [
+      { label: "New Tab" },
+      {
+        label: "Close (வெளியேறு)",
+        click() {
+          app.quit();
+        },
+      },
+    ],
+  },
+];
 
+if (process.platform === "darwin") {
+  /**
+   * On mac os, the file menu will merged into first menu,
+   * to avoid that add empty object start of the menus
+   */
+  menuTemplate.unshift({});
+}
+
+app.on("ready", () => {
   mainWindow = new BrowserWindow({
     width: 1000,
     height: 600,
@@ -20,17 +41,7 @@ app.on("ready", () => {
 
   console.log("__dirname", __dirname);
   mainWindow.loadURL(`file://${__dirname}/todo.html`);
-});
 
-ipcMain.on("video:submit", (event, path) => {
-  console.log("path", path);
-  ffmpeg.ffprobe(path, (err, metaData) => {
-    if (err) {
-      console.log("error", err);
-    }
-
-    mainWindow.webContents.send("video:metadata", metaData);
-
-    console.log("metaData", metaData);
-  });
+  const mainMenu = Menu.buildFromTemplate(menuTemplate);
+  Menu.setApplicationMenu(mainMenu);
 });
