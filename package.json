@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "todo": "electron todo.js",
+    "todo": "NODE_ENV=development electron todo.js",
     "electron": "electron ."
   },
   "repository": {

@@ -6,3 +6,10 @@ ctrl + R = to rerender the browser
 if we change electron content or index.js or electron related must do restart
 
 ----------------------------
+
+https://medium.com/ingeniouslysimple/building-an-electron-app-from-scratch-part-1-a1d9012c146a
+
+https://medium.com/developers-writing/building-a-desktop-application-with-electron-204203eeb658
+
+
+https://www.youtube.com/watch?v=8TI83TG_Ufs&list=PLtWy6rdN1yBntIyLeNo-fCVR6AaK7vdyl&index=28

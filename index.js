@@ -5,7 +5,7 @@ const { app, BrowserWindow, ipcMain } = electron;
 let mainWindow;
 
 app.on("ready", () => {
-  console.log("App is ready");
+  console.log("App is ready", process.env.NODE_ENV);
 
   mainWindow = new BrowserWindow({
     width: 1000,

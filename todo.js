@@ -61,7 +61,25 @@ if (platform === "darwin") {
   menuTemplate.unshift({});
 }
 
+if (process.env.NODE_ENV !== "production") {
+  menuTemplate.push({
+    label: "View",
+    submenu: [
+      {
+        label: "Toggle Developer Tool",
+        accelerator:
+          platform === "darwin" ? `${ctrl}+Alt+I` : `${ctrl}+Shift+I`,
+        click(item, focusedWindow) {
+          focusedWindow.toggleDevTools();
+        },
+      },
+    ],
+  });
+}
+
 app.on("ready", () => {
+  console.log("todo is ready", process.env.NODE_ENV);
+
   mainWindow = new BrowserWindow({
     width: 1000,
     height: 600,
