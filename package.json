@@ -6,6 +6,7 @@
   "scripts": {
     "start": "electron .",
     "todo": "NODE_ENV=development electron todo.js",
+    "video": "NODE_ENV=development electron index.js",
     "electron": "electron ."
   },
   "repository": {

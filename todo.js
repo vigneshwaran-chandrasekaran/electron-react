@@ -1,7 +1,6 @@
 const electron = require("electron");
-const ffmpeg = require("fluent-ffmpeg");
 
-const { app, BrowserWindow, Menu } = electron;
+const { app, BrowserWindow, Menu, ipcMain } = electron;
 let mainWindow;
 let addWindow;
 
@@ -18,10 +17,20 @@ function createAddWindow() {
   addWindow = new BrowserWindow({
     width: 300,
     height: 200,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+      enableRemoteModule: true,
+    },
     title: "Add New Todo",
   });
   addWindow.loadURL(`file://${__dirname}/add.html`);
 }
+
+ipcMain.on("todo:add", (event, data) => {
+  console.log("data inside todo box 1", data);
+  mainWindow.webContents.send("todo:add", data);
+});
 
 const menuTemplate = [
   {
@@ -88,6 +97,7 @@ app.on("ready", () => {
       contextIsolation: false,
       enableRemoteModule: true,
     },
+    title: "Welcome to Todo app",
     backgroundColor: "#ccc",
   });
 
