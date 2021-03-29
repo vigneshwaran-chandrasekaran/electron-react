@@ -2,7 +2,7 @@ const electron = require("electron");
 
 const { app, BrowserWindow, Menu, ipcMain } = electron;
 let mainWindow;
-let addWindow;
+let addWindow = null;
 
 let ctrl = "Ctrl"; // For windows and Ubuntu
 let platform = process.platform;
@@ -14,22 +14,37 @@ if (platform === "darwin") {
 console.log("ctrl", ctrl);
 
 function createAddWindow() {
-  addWindow = new BrowserWindow({
-    width: 300,
-    height: 200,
-    webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
-      enableRemoteModule: true,
-    },
-    title: "Add New Todo",
+  /**
+   * if addWindow already created it will not create new one,
+   * this will block creating multiple add todo window
+   */
+  if (!addWindow) {
+    addWindow = new BrowserWindow({
+      width: 300,
+      height: 200,
+      webPreferences: {
+        nodeIntegration: true,
+        contextIsolation: false,
+        enableRemoteModule: true,
+      },
+      title: "Add New Todo",
+    });
+    addWindow.loadURL(`file://${__dirname}/add.html`);
+  }
+
+  addWindow.on("closed", () => {
+    /**
+     * when close the new add todo window, free up its memory space,
+     * by assigning null to addWindow will release message used by that window
+     */
+    addWindow = null;
   });
-  addWindow.loadURL(`file://${__dirname}/add.html`);
 }
 
 ipcMain.on("todo:add", (event, data) => {
   console.log("data inside todo box 1", data);
   mainWindow.webContents.send("todo:add", data);
+  addWindow.close();
 });
 
 const menuTemplate = [
@@ -74,6 +89,10 @@ if (process.env.NODE_ENV !== "production") {
   menuTemplate.push({
     label: "View",
     submenu: [
+      /**
+       * Will clear the main window
+       */
+      { role: "reload" },
       {
         label: "Toggle Developer Tool",
         accelerator:

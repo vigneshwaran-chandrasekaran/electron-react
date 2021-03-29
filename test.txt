@@ -12,4 +12,4 @@ https://medium.com/ingeniouslysimple/building-an-electron-app-from-scratch-part-
 https://medium.com/developers-writing/building-a-desktop-application-with-electron-204203eeb658
 
 
-https://www.youtube.com/watch?v=8TI83TG_Ufs&list=PLtWy6rdN1yBntIyLeNo-fCVR6AaK7vdyl&index=28
+https://www.youtube.com/watch?v=4gitXzczPkA&list=PLtWy6rdN1yBntIyLeNo-fCVR6AaK7vdyl&index=32
