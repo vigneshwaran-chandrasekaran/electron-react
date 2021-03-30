@@ -52,9 +52,15 @@ const menuTemplate = [
     label: "File",
     submenu: [
       {
-        label: "New Tab",
+        label: "New Todo",
         click() {
           createAddWindow();
+        },
+      },
+      {
+        label: "Clear Todo",
+        click() {
+          mainWindow.webContents.send("todo:clear");
         },
       },
       {

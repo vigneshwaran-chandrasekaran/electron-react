@@ -13,3 +13,9 @@ https://medium.com/developers-writing/building-a-desktop-application-with-electr
 
 
 https://www.youtube.com/watch?v=4gitXzczPkA&list=PLtWy6rdN1yBntIyLeNo-fCVR6AaK7vdyl&index=32
+
+
+-------------------------------------------
+learn concept in detail
+
+ipc - inter process communication
