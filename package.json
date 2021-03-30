@@ -7,6 +7,7 @@
     "start": "electron .",
     "todo": "NODE_ENV=development electron todo.js",
     "video": "NODE_ENV=development electron video.js",
+    "timer": "NODE_ENV=development electron timer.js",
     "electron": "electron ."
   },
   "repository": {
