@@ -3,6 +3,7 @@ const path = require("path");
 
 const { app, BrowserWindow, Tray } = electron;
 let mainWindow = null;
+let tray = null;
 
 app.on("ready", () => {
   mainWindow = new BrowserWindow({
@@ -11,7 +12,7 @@ app.on("ready", () => {
     frame: false,
     resizable: false,
     center: true,
-    show: true,
+    show: false,
   });
   console.log("__dirname", __dirname);
   mainWindow.loadURL(`file://${__dirname}/src/index.html`);
@@ -22,8 +23,16 @@ app.on("ready", () => {
       : "Actions-user-properties-icon.png";
   const iconPath = path.join(__dirname, `./src/assets/${iconName}`);
 
-  const tray = new Tray(iconPath);
-  tray.setToolTip("hello electrol");
+  tray = new Tray(iconPath);
+  // tray.setToolTip("hello electrol");
+
+  tray.on("click", () => {
+    if (mainWindow.isVisible()) {
+      mainWindow.hide();
+    } else {
+      mainWindow.show();
+    }
+  });
 });
 
 // tray menu details
