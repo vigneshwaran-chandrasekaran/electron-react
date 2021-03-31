@@ -72,6 +72,8 @@ const menuTemplate = [
           console.log("Hello " + platform);
         },
       },
+      { type: "separator" },
+      { role: "quit" }, // "role": system prepared action menu
       {
         label: "Close (வெளியேறு)",
         accelerator: `${ctrl}+Q`,
