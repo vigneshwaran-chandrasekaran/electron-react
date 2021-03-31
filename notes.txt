@@ -12,8 +12,11 @@ https://medium.com/ingeniouslysimple/building-an-electron-app-from-scratch-part-
 https://medium.com/developers-writing/building-a-desktop-application-with-electron-204203eeb658
 
 
-https://www.youtube.com/watch?v=OYTisfND1no&list=PLtWy6rdN1yBntIyLeNo-fCVR6AaK7vdyl&index=35
+https://www.youtube.com/watch?v=T9CgHuRPMmc&list=PLtWy6rdN1yBntIyLeNo-fCVR6AaK7vdyl&index=41
 
+-------------------------------------------
+window bounds, watch it once again for good understanding
+https://youtu.be/8XUZBqiJdVk?list=PLtWy6rdN1yBntIyLeNo-fCVR6AaK7vdyl
 -------------------------------------------
 usefull links
 
