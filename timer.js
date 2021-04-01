@@ -1,6 +1,9 @@
 const electron = require("electron");
 const path = require("path");
 
+const { shell } = require("electron");
+const emptyTrash = require("empty-trash");
+
 const { app, BrowserWindow, Tray, screen } = electron;
 let mainWindow = null;
 let tray = null;
@@ -56,6 +59,12 @@ app.on("ready", () => {
       });
       mainWindow.show();
     }
+    // shell.d("https://github.com");
+    shell.beep();
+
+    (async () => {
+      await emptyTrash();
+    })();
   });
 });
 
