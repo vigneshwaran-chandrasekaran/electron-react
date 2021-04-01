@@ -35,3 +35,18 @@ https://www.electronjs.org/userland/most_downloaded_packages
 learn concept in detail
 
 ipc - inter process communication
+
+
+----------
+good github repo for electron
+
+https://github.com/electron/electron-api-demos
+https://github.com/electron/electron-api-demos/blob/master/package.json
+
+
+-----------------------
+
+checks for node memory leaks used in electron apps
+https://www.npmjs.com/package/check-for-leaks
+
+-----------------------
