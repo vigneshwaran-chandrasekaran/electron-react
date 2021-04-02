@@ -2,9 +2,9 @@ const electron = require("electron");
 const path = require("path");
 
 const { shell } = require("electron");
-const emptyTrash = require("empty-trash");
+// const emptyTrash = require("empty-trash");
 
-const { app, BrowserWindow, Tray, screen } = electron;
+const { app, BrowserWindow, Tray, screen, Menu } = electron;
 let mainWindow = null;
 let tray = null;
 
@@ -27,7 +27,7 @@ app.on("ready", () => {
   const iconPath = path.join(__dirname, `./src/assets/${iconName}`);
 
   tray = new Tray(iconPath);
-  // tray.setToolTip("hello electrol");
+  tray.setToolTip("Timer App");
 
   tray.on("click", (event, bounds) => {
     console.log("bounds", bounds);
@@ -62,9 +62,18 @@ app.on("ready", () => {
     // shell.d("https://github.com");
     shell.beep();
 
-    (async () => {
-      await emptyTrash();
-    })();
+    const menuConfig = Menu.buildFromTemplate([
+      {
+        label: "Quit the app",
+        click: () => app.quit(),
+      },
+    ]);
+
+    tray.setContextMenu(menuConfig);
+
+    // (async () => {
+    //   // await emptyTrash();
+    // })();
   });
 });
 
