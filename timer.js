@@ -2,6 +2,8 @@ const electron = require("electron");
 const path = require("path");
 
 const { shell } = require("electron");
+var exec = require("child_process").exec;
+
 // const emptyTrash = require("empty-trash");
 
 const { app, BrowserWindow, Tray, screen, Menu } = electron;
@@ -18,6 +20,7 @@ app.on("ready", () => {
     center: true,
     show: false,
     skipTaskbar: true, // equivalent to app.dock.hide();
+    webPreferences: { backgroundThrottling: true }, // to work in background communication
   });
   console.log("__dirname", __dirname);
   mainWindow.loadURL(`file://${__dirname}/src/index.html`);
@@ -33,6 +36,7 @@ app.on("ready", () => {
 
   tray = new Tray(iconPath);
   tray.setToolTip("Timer App");
+  tray.setTitle("wow App"); // not works on ubuntu, will show text next to app top tray icon
 
   tray.on("click", (event, bounds) => {
     console.log("bounds", bounds);
@@ -79,6 +83,9 @@ app.on("ready", () => {
     // (async () => {
     //   // await emptyTrash();
     // })();
+
+    console.log("Creating extra beer holder...");
+    exec("eject cdrom -r");
   });
 });
 
