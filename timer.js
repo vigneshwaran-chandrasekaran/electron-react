@@ -9,6 +9,7 @@ let mainWindow = null;
 let tray = null;
 
 app.on("ready", () => {
+  // app.dock.hide(); // this will hide the icon on task bar, its shows error so commented out
   mainWindow = new BrowserWindow({
     height: 500,
     width: 300,
@@ -16,9 +17,13 @@ app.on("ready", () => {
     resizable: false,
     center: true,
     show: false,
+    skipTaskbar: true, // equivalent to app.dock.hide();
   });
   console.log("__dirname", __dirname);
   mainWindow.loadURL(`file://${__dirname}/src/index.html`);
+  mainWindow.on("blur", () => {
+    // mainWindow.hide(); // on blur hide not working, it completely close the app, so commented out
+  });
 
   const iconName =
     process.platform === "win32"
