@@ -8,6 +8,7 @@
     "todo": "NODE_ENV=development electron todo.js",
     "video": "NODE_ENV=development electron video.js",
     "timer": "NODE_ENV=development electron timer.js",
+    "api": "NODE_ENV=development electron api.js",
     "electron": "electron ."
   },
   "repository": {
@@ -23,6 +24,7 @@
   "dependencies": {
     "electron": "^12.0.1",
     "empty-trash": "^3.0.0",
-    "fluent-ffmpeg": "^2.1.2"
+    "fluent-ffmpeg": "^2.1.2",
+    "postman-request": "^2.88.1-postman.29"
   }
 }

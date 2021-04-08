@@ -20,6 +20,8 @@ https://youtu.be/8XUZBqiJdVk?list=PLtWy6rdN1yBntIyLeNo-fCVR6AaK7vdyl
 -------------------------------------------
 usefull links
 
+https://xwartz.gitbooks.io/electron-gitbook/content/en/index.html
+
 http://photonkit.com/components/
 https://github.com/react-photonkit/react-photonkit
 
@@ -50,3 +52,4 @@ checks for node memory leaks used in electron apps
 https://www.npmjs.com/package/check-for-leaks
 
 -----------------------
+
