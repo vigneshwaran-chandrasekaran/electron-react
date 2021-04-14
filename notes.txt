@@ -6,6 +6,18 @@ ctrl + R = to rerender the browser
 if we change electron content or index.js or electron related must do restart
 
 ----------------------------
+react with election
+
+https://medium.com/@kitze/%EF%B8%8F-from-react-to-an-electron-app-ready-for-production-a0468ecb1da3
+https://medium.com/@devesu/how-to-build-a-react-based-electron-app-d0f27413f17f
+https://medium.com/@johndyer24/building-a-production-electron-create-react-app-application-with-shared-code-using-electron-builder-c1f70f0e2649
+https://medium.com/bobble-engineering/create-a-desktop-app-using-electron-and-react-b23b435c0506
+
+
+plain react
+https://medium.com/@keshavagrawal/electron-js-react-js-express-js-b0fb2aa8233f
+----------------------------
+
 
 https://medium.com/ingeniouslysimple/building-an-electron-app-from-scratch-part-1-a1d9012c146a
 
